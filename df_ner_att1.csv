@@ -1,0 +1,832 @@
+entity,type,entity_cl
+Volvo,ORG,Volvo
+Walmart,ORG,Walmart
+New Hanover County Sheriff Office,ORG,New Hanover County Sheriff Office
+Walmart,ORG,Walmart
+CTV News,ORG,CTV News
+Kitchener Stanley Park Mall,ORG,Kitchener Stanley Park Mall
+The Canadian Press,ORG,The Canadian Press
+Walmart,ORG,Walmart
+Breakfast Television,ORG,Breakfast Television
+Digital Advertising Alliance,ORG,Digital Advertising Alliance
+Rogers Media,ORG,Rogers Media
+2K,ORG,2K
+2K Streaming Stick,ORG,2K Streaming Stick
+4K,ORG,4K
+Android TV,ORG,Android TV
+Atmos,ORG,Atmos
+CNET,ORG,CNET
+Disney,ORG,Disney
+Dolby Atmos,ORG,Dolby Atmos
+Dolby Audio,ORG,Dolby Audio
+FCC,ORG,FCC
+Federal Communications Commission,ORG,Federal Communications Commission
+Google Assistant,ORG,Google Assistant
+Google TV,ORG,Google TV
+HBO Max,ORG,HBO Max
+Netflix,ORG,Netflix
+Onn,ORG,Onn
+Roku,ORG,Roku
+Tubi TV,ORG,Tubi TV
+UHD,ORG,UHD
+Walmart,ORG,Walmart
+YouTube,ORG,YouTube
+Hasbro,ORG,Hasbro
+Walmart,ORG,Walmart
+Bentonville,ORG,Bentonville
+McMillon,ORG,McMillon
+NYSE,ORG,NYSE
+Securities  Exchange Act,ORG,Securities  Exchange Act
+US Securities  Exchange Commission,ORG,US Securities  Exchange Commission
+WMT,ORG,WMT
+Walmart,ORG,Walmart
+Walmart Inc,ORG,Walmart Inc
+1PointFive,ORG,1PointFive
+3C,ORG,3C
+Baker Hughes,ORG,Baker Hughes
+Blue Planet Systems,ORG,Blue Planet Systems
+Chevron,ORG,Chevron
+Compact Carbon Capture,ORG,Compact Carbon Capture
+Energy Transition Ventures,ORG,Energy Transition Ventures
+Exxon,ORG,Exxon
+Exxon CO2,ORG,Exxon CO2
+Exxon Mobil,ORG,Exxon Mobil
+Kinder Morgan,ORG,Kinder Morgan
+Low Carbon Solutions LLC,ORG,Low Carbon Solutions LLC
+Occidental,ORG,Occidental
+Oxy Low Carbon Ventures,ORG,Oxy Low Carbon Ventures
+Reuters,ORG,Reuters
+Rusheen Capital Management,ORG,Rusheen Capital Management
+United Airlines,ORG,United Airlines
+United Nations,ORG,United Nations
+Dow Jones  Company,ORG,Dow Jones  Company
+Equitiescom,ORG,Equitiescom
+Equitiescom Newsdesk,ORG,Equitiescom Newsdesk
+Exxon Mobil Corporation,ORG,Exxon Mobil Corporation
+ExxonMobil,ORG,ExxonMobil
+GE,ORG,GE
+General Electric,ORG,General Electric
+QuoteMedia,ORG,QuoteMedia
+Wall Street Journal,ORG,Wall Street Journal
+XOM,ORG,XOM
+XOM Profile,ORG,XOM Profile
+Andeavor,ORG,Andeavor
+CalSTRS,ORG,CalSTRS
+California State Teachers Retirement System,ORG,California State Teachers Retirement System
+Caterpillar,ORG,Caterpillar
+Exxon,ORG,Exxon
+Finish,ORG,Finish
+IBM,ORG,IBM
+MetLife,ORG,MetLife
+Neste,ORG,Neste
+Petronas,ORG,Petronas
+US Energy Department,ORG,US Energy Department
+Vestas Wind Systems,ORG,Vestas Wind Systems
+BTC,ORG,BTC
+Bitcoin,ORG,Bitcoin
+ETH,ORG,ETH
+Ethereum,ORG,Ethereum
+Exxon Mobil Corporation,ORG,Exxon Mobil Corporation
+Hold,ORG,Hold
+NYSE,ORG,NYSE
+RSI,ORG,RSI
+Sell,ORG,Sell
+Underperform,ORG,Underperform
+XOM,ORG,XOM
+Exxon Mobil Corporation,ORG,Exxon Mobil Corporation
+NYSE,ORG,NYSE
+Oil  Gas Integrated,ORG,Oil  Gas Integrated
+UBBEN JEFFREY W,ORG,UBBEN JEFFREY W
+XOM,ORG,XOM
+Affluence Market Reports,ORG,Affluence Market Reports
+Axel Christiernsson,ORG,Axel Christiernsson
+BP,ORG,BP
+Chevron,ORG,Chevron
+Exxon Mobil,ORG,Exxon Mobil
+Global Aluminum Window Market,ORG,Global Aluminum Window Market
+Shell,ORG,Shell
+Total Lubricants,ORG,Total Lubricants
+APAC,ORG,APAC
+ReportsnReports,ORG,ReportsnReports
+BAILLIE GIFFORD  CO,ORG,BAILLIE GIFFORD  CO
+COP,ORG,COP
+ConocoPhillips,ORG,ConocoPhillips
+EOG,ORG,EOG
+EOG Resources Inc,ORG,EOG Resources Inc
+EQNR,ORG,EQNR
+Equinor ASA,ORG,Equinor ASA
+Exxon Mobil Corp,ORG,Exxon Mobil Corp
+First Eagle Investment,ORG,First Eagle Investment
+Fisher,ORG,Fisher
+GuruFocus,ORG,GuruFocus
+PRIMECAP Management,ORG,PRIMECAP Management
+Pioneer Investments,ORG,Pioneer Investments
+Portfolio,ORG,Portfolio
+Renaissance Technologies,ORG,Renaissance Technologies
+SP,ORG,SP
+Trades,ORG,Trades
+Trades Portfolio,ORG,Trades Portfolio
+XOM,ORG,XOM
+Yacktman Asset Management,ORG,Yacktman Asset Management
+Instagram,ORG,Instagram
+Reviewed,ORG,Reviewed
+Twitter,ORG,Twitter
+Woot,ORG,Woot
+9to5Mac,ORG,9to5Mac
+Amazon,ORG,Amazon
+Apple,ORG,Apple
+Apple Originals,ORG,Apple Originals
+Apple TV Plus,ORG,Apple TV Plus
+Disney,ORG,Disney
+Disney Plus,ORG,Disney Plus
+Hulu,ORG,Hulu
+Insider,ORG,Insider
+JustWatch,ORG,JustWatch
+Netflix,ORG,Netflix
+Worldwide Video,ORG,Worldwide Video
+Apple,ORG,Apple
+VR,ORG,VR
+AirPods,ORG,AirPods
+AirPods Max,ORG,AirPods Max
+AirPods Pro,ORG,AirPods Pro
+Apple,ORG,Apple
+Apple Watch,ORG,Apple Watch
+Apple Watch SE,ORG,Apple Watch SE
+Cupertino,ORG,Cupertino
+IDC,ORG,IDC
+Samsung,ORG,Samsung
+Wearables,ORG,Wearables
+Xiaomi,ORG,Xiaomi
+AirTags,ORG,AirTags
+Apple,ORG,Apple
+Apple Card,ORG,Apple Card
+Apple Developer Center,ORG,Apple Developer Center
+Apple Fitness,ORG,Apple Fitness
+Apple Maps,ORG,Apple Maps
+Apple Music,ORG,Apple Music
+Apple News,ORG,Apple News
+Apple Watch,ORG,Apple Watch
+Beats,ORG,Beats
+Belkin,ORG,Belkin
+DualSense,ORG,DualSense
+LTE,ORG,LTE
+Spotify,ORG,Spotify
+Waze,ORG,Waze
+iOS,ORG,iOS
+Amazon,ORG,Amazon
+Amazon Echo,ORG,Amazon Echo
+Apple,ORG,Apple
+Apple Care,ORG,Apple Care
+Apple Music,ORG,Apple Music
+Apple Online Store,ORG,Apple Online Store
+Cupertino,ORG,Cupertino
+Google,ORG,Google
+HomePod,ORG,HomePod
+TechCrunch,ORG,TechCrunch
+Apple,ORG,Apple
+Apple Maps,ORG,Apple Maps
+Edison Research,ORG,Edison Research
+Spotify,ORG,Spotify
+AirPods New Kuo,ORG,AirPods New Kuo
+Apple,ORG,Apple
+Apple Fitness,ORG,Apple Fitness
+Apple Podcasts,ORG,Apple Podcasts
+Apple TV,ORG,Apple TV
+MingChi Kuo,ORG,MingChi Kuo
+Patreon,ORG,Patreon
+Spotify,ORG,Spotify
+Sticher,ORG,Sticher
+Stitcher Premium,ORG,Stitcher Premium
+AMD,ORG,AMD
+Apple,ORG,Apple
+AppleInsider,ORG,AppleInsider
+CSS,ORG,CSS
+Cornell University,ORG,Cornell University
+Samsung,ORG,Samsung
+The 8Bit,ORG,The 8Bit
+AAPL,ORG,AAPL
+Apple Inc,ORG,Apple Inc
+Atrion Corp,ORG,Atrion Corp
+BRKA,ORG,BRKA
+BTC iShares MSCI USA Value Factor ETF,ORG,BTC iShares MSCI USA Value Factor ETF
+Berkshire Hathaway Inc,ORG,Berkshire Hathaway Inc
+Callaway Golf Co,ORG,Callaway Golf Co
+Current Portfolio,ORG,Current Portfolio
+Delta Air Lines Inc,ORG,Delta Air Lines Inc
+Equal Weight Technology ETF,ORG,Equal Weight Technology ETF
+Financial Select Sector SPDR,ORG,Financial Select Sector SPDR
+First Trust NASDAQ CEA Cybersecurity ETF,ORG,First Trust NASDAQ CEA Cybersecurity ETF
+Goldman Sachs Group Inc,ORG,Goldman Sachs Group Inc
+Industrial Select Sector SPDR,ORG,Industrial Select Sector SPDR
+Invesco BulletShares,ORG,Invesco BulletShares
+Invesco SP,ORG,Invesco SP
+Laurel Wealth Advisors LLC,ORG,Laurel Wealth Advisors LLC
+Leidos Holdings Inc,ORG,Leidos Holdings Inc
+MSFT,ORG,MSFT
+Microsoft Corp,ORG,Microsoft Corp
+MongoDB Inc,ORG,MongoDB Inc
+PROSHARES TRUST,ORG,PROSHARES TRUST
+PowerShares FTSE,ORG,PowerShares FTSE
+PowerShares FTSE RAFI US,ORG,PowerShares FTSE RAFI US
+Reinsurance Group of America Inc,ORG,Reinsurance Group of America Inc
+South State Corp,ORG,South State Corp
+VTIP,ORG,VTIP
+Vanguard ShortTerm InflationProtected Securities,ORG,Vanguard ShortTerm InflationProtected Securities
+Vontier Corp,ORG,Vontier Corp
+Wells Fargo,ORG,Wells Fargo
+Wells Fargo  Co,ORG,Wells Fargo  Co
+Wright Medical Group NV,ORG,Wright Medical Group NV
+iShares,ORG,iShares
+iShares SP Global Clean Energy Index Fund,ORG,iShares SP Global Clean Energy Index Fund
+iShares US Technology ETF,ORG,iShares US Technology ETF
+Amazon,ORG,Amazon
+Amazoncom,ORG,Amazoncom
+Berkshire,ORG,Berkshire
+Berkshire Hathaway,ORG,Berkshire Hathaway
+DCBO,ORG,DCBO
+Docebo,ORG,Docebo
+TFSA,ORG,TFSA
+TSX,ORG,TSX
+The Motley Fool,ORG,The Motley Fool
+Treasury,ORG,Treasury
+BRKB,ORG,BRKB
+Berkshire,ORG,Berkshire
+Berkshire Hathaway Inc,ORG,Berkshire Hathaway Inc
+SPDR Financial Select Sector ETF XLF,ORG,SPDR Financial Select Sector ETF XLF
+SPX,ORG,SPX
+Securities and Exchange Commission,ORG,Securities and Exchange Commission
+Barron,ORG,Barron
+Berkshire,ORG,Berkshire
+Berkshire Hathaway,ORG,Berkshire Hathaway
+BRK,ORG,BRK
+BRKB,ORG,BRKB
+Berkshire,ORG,Berkshire
+Berkshire Hathaway Inc,ORG,Berkshire Hathaway Inc
+Black Bear,ORG,Black Bear
+Black Bear Value Partners,ORG,Black Bear Value Partners
+Federal Reserve,ORG,Federal Reserve
+NYSE,ORG,NYSE
+Tesla,ORG,Tesla
+Insurance,ORG,Insurance
+TOC,ORG,TOC
+AIG,ORG,AIG
+AXA,ORG,AXA
+Allianz,ORG,Allianz
+Allstate,ORG,Allstate
+Aviva,ORG,Aviva
+Berkshire Hathaway,ORG,Berkshire Hathaway
+Catastrophe Insurance Industry,ORG,Catastrophe Insurance Industry
+Catastrophe Insurance Market,ORG,Catastrophe Insurance Market
+Global Catastrophe Insurance Market,ORG,Global Catastrophe Insurance Market
+Grand Market Analytics,ORG,Grand Market Analytics
+Liberty Mutual,ORG,Liberty Mutual
+Lloyds,ORG,Lloyds
+Zurich Insurance Group,ORG,Zurich Insurance Group
+BNSF,ORG,BNSF
+Berkshire,ORG,Berkshire
+Berkshire Hathaway Energy,ORG,Berkshire Hathaway Energy
+Brooks,ORG,Brooks
+Caisse de Dépôt et Placement du Québec,ORG,Caisse de Dépôt et Placement du Québec
+California Public Employees Retirement System,ORG,California Public Employees Retirement System
+Federated Hermes,ORG,Federated Hermes
+Geico,ORG,Geico
+Warren Buffett Berkshire Hathaway,ORG,Warren Buffett Berkshire Hathaway
+Amazon,ORG,Amazon
+Amazon Lord of the Rings,ORG,Amazon Lord of the Rings
+Australian Academy of Cinema and Television Arts Awards,ORG,Australian Academy of Cinema and Television Arts Awards
+Budge,ORG,Budge
+IndieWire,ORG,IndieWire
+Instagram,ORG,Instagram
+Lord of the Rings,ORG,Lord of the Rings
+TCA,ORG,TCA
+The Orphanage,ORG,The Orphanage
+Amazon,ORG,Amazon
+COLONIE,ORG,COLONIE
+Colonie Planning,ORG,Colonie Planning
+PVA,ORG,PVA
+Planning Board,ORG,Planning Board
+News13,ORG,News13
+USPS,ORG,USPS
+United States Postal Service,ORG,United States Postal Service
+ASAP,ORG,ASAP
+Amazon,ORG,Amazon
+Flex,ORG,Flex
+Globe,ORG,Globe
+Lowe,ORG,Lowe
+MAPC,ORG,MAPC
+Macy,ORG,Macy
+Massachusetts Department of Transportation,ORG,Massachusetts Department of Transportation
+Metropolitan Area Planning Council,ORG,Metropolitan Area Planning Council
+Peleton,ORG,Peleton
+Restoration Hardware,ORG,Restoration Hardware
+Amazon,ORG,Amazon
+FC Games,ORG,FC Games
+The Information,ORG,The Information
+Amazon,ORG,Amazon
+Amazon,ORG,Amazon
+Baltimore Sun,ORG,Baltimore Sun
+DC,ORG,DC
+ProPublica,ORG,ProPublica
+Washington Post,ORG,Washington Post
+AMZN,ORG,AMZN
+Alphabet Inc,ORG,Alphabet Inc
+Amazoncom Inc,ORG,Amazoncom Inc
+Automated Insights,ORG,Automated Insights
+Cl A GOOGL,ORG,Cl A GOOGL
+Dow Jones,ORG,Dow Jones
+Dow Jones Industrial Average DJIA,ORG,Dow Jones Industrial Average DJIA
+FactSet,ORG,FactSet
+MSFT,ORG,MSFT
+Microsoft Corp,ORG,Microsoft Corp
+WMT,ORG,WMT
+Walmart Inc,ORG,Walmart Inc
+Amazon Prime,ORG,Amazon Prime
+HBO Max,ORG,HBO Max
+Hulu,ORG,Hulu
+Justice League,ORG,Justice League
+Netflix,ORG,Netflix
+Peacock,ORG,Peacock
+Zack Snyder Justice League,ORG,Zack Snyder Justice League
+Alamo Drafthouse,ORG,Alamo Drafthouse
+Amazon,ORG,Amazon
+Crash,ORG,Crash
+Instagram,ORG,Instagram
+Lord of the Rings,ORG,Lord of the Rings
+A2Z Market Research,ORG,A2Z Market Research
+Aetna Inc,ORG,Aetna Inc
+Allscripts Healthcare Solutions Inc,ORG,Allscripts Healthcare Solutions Inc
+Care Solutions Market,ORG,Care Solutions Market
+Cerner Corporation,ORG,Cerner Corporation
+Cerner Corporation  A2Z Market Research,ORG,Cerner Corporation  A2Z Market Research
+EClinicalWorks Inc,ORG,EClinicalWorks Inc
+Epic Systems Corporation,ORG,Epic Systems Corporation
+IBM Corporation,ORG,IBM Corporation
+Mckesson Corporation,ORG,Mckesson Corporation
+NextGen Healthcare,ORG,NextGen Healthcare
+Porter,ORG,Porter
+UnitedHealth Group,ORG,UnitedHealth Group
+Verisk Health  The,ORG,Verisk Health  The
+Zeomega Inc,ORG,Zeomega Inc
+DOJ,ORG,DOJ
+Surgical Care Affiliates LLC,ORG,Surgical Care Affiliates LLC
+US Department of Justice,ORG,US Department of Justice
+UnitedHealth Group,ORG,UnitedHealth Group
+DE,ORG,DE
+Dow Jones  Company,ORG,Dow Jones  Company
+Equitiescom,ORG,Equitiescom
+Equitiescom Newsdesk,ORG,Equitiescom Newsdesk
+GE,ORG,GE
+General Electric,ORG,General Electric
+Optum,ORG,Optum
+QuoteMedia,ORG,QuoteMedia
+UNH,ORG,UNH
+UnitedHealth,ORG,UnitedHealth
+UnitedHealth Group,ORG,UnitedHealth Group
+UnitedHealth Group Incorporated,ORG,UnitedHealth Group Incorporated
+Wall Street Journal,ORG,Wall Street Journal
+Fierce Healthcare,ORG,Fierce Healthcare
+Jet Blue,ORG,Jet Blue
+LinkedIn,ORG,LinkedIn
+Mayo Clinic,ORG,Mayo Clinic
+Trump,ORG,Trump
+UnitedHealth Group,ORG,UnitedHealth Group
+Achievers’,ORG,Achievers’
+Every State  Kelly Services,ORG,Every State  Kelly Services
+FlexJobs,ORG,FlexJobs
+FlexJobs’,ORG,FlexJobs’
+Kelly Services,ORG,Kelly Services
+Lionbridge,ORG,Lionbridge
+Liveops,ORG,Liveops
+Remote Jobs,ORG,Remote Jobs
+Sutherland,ORG,Sutherland
+TTEC,ORG,TTEC
+TeleTech,ORG,TeleTech
+US Rater,ORG,US Rater
+WilliamsSonoma,ORG,WilliamsSonoma
+AIA Insurance Group,ORG,AIA Insurance Group
+AXA,ORG,AXA
+Adroit Market Research,ORG,Adroit Market Research
+Aetna Inc,ORG,Aetna Inc
+Allianz SE,ORG,Allianz SE
+Apollo Munich Health Insurance,ORG,Apollo Munich Health Insurance
+Aviva plc,ORG,Aviva plc
+Cigna Corporation,ORG,Cigna Corporation
+Express Scripts Holding Company,ORG,Express Scripts Holding Company
+Global Health Insurance,ORG,Global Health Insurance
+Global Health Insurance Market Research Report,ORG,Global Health Insurance Market Research Report
+Health Insurance,ORG,Health Insurance
+Health Insurance Market,ORG,Health Insurance Market
+International Medical Group,ORG,International Medical Group
+The Health Insurance,ORG,The Health Insurance
+UnitedHealth Group Inc,ORG,UnitedHealth Group Inc
+Zurich Insurance Group Ltd,ORG,Zurich Insurance Group Ltd
+Adroit Market Research,ORG,Adroit Market Research
+Global Medical Insurance,ORG,Global Medical Insurance
+Global Medical Insurance Market Research Report,ORG,Global Medical Insurance Market Research Report
+Medical Insurance,ORG,Medical Insurance
+Medical Insurance Market,ORG,Medical Insurance Market
+Adroit Market Research,ORG,Adroit Market Research
+Global Healthcare IT Integration Market Research Report,ORG,Global Healthcare IT Integration Market Research Report
+Healthcare IT Integration,ORG,Healthcare IT Integration
+AMA,ORG,AMA
+AMA Research,ORG,AMA Research
+APAC,ORG,APAC
+Advance Market Analytics,ORG,Advance Market Analytics
+Fortune,ORG,Fortune
+Market Research Industry,ORG,Market Research Industry
+Allscripts,ORG,Allscripts
+COVID19 OutbreakGlobal Home Healthcare Software Market,ORG,COVID19 OutbreakGlobal Home Healthcare Software Market
+Cerner,ORG,Cerner
+Delta Health Technologies,ORG,Delta Health Technologies
+Experience Research,ORG,Experience Research
+Facebook,ORG,Facebook
+HTF,ORG,HTF
+HTF MI,ORG,HTF MI
+HTF Market Report,ORG,HTF Market Report
+HTF market Intelligence Consulting Private Limited,ORG,HTF market Intelligence Consulting Private Limited
+Kinnser Software,ORG,Kinnser Software
+LinkedIn,ORG,LinkedIn
+McKesson,ORG,McKesson
+NJ   New Jersey USA,ORG,NJ   New Jersey USA
+Netsmart Technologies,ORG,Netsmart Technologies
+PR  Marketing Manager,ORG,PR  Marketing Manager
+Parsonage Road Edison,ORG,Parsonage Road Edison
+Thornberry  Meditech,ORG,Thornberry  Meditech
+Twitter,ORG,Twitter
+FDA,ORG,FDA
+Global Healthcare Supply Chain Management Market,ORG,Global Healthcare Supply Chain Management Market
+Healthcare Supply Chain Management,ORG,Healthcare Supply Chain Management
+Healthcare Supply Chain Management Market,ORG,Healthcare Supply Chain Management Market
+Market Research Port,ORG,Market Research Port
+Rest of the World,ORG,Rest of the World
+Statista,ORG,Statista
+AMD Global Telemedicine Inc,ORG,AMD Global Telemedicine Inc
+Aerotel Medical Systems,ORG,Aerotel Medical Systems
+Allscripts,ORG,Allscripts
+Cerner Corporation,ORG,Cerner Corporation
+Cisco Systems Inc,ORG,Cisco Systems Inc
+GENERAL ELECTRIC COMPANY,ORG,GENERAL ELECTRIC COMPANY
+Global Telemedicine Market,ORG,Global Telemedicine Market
+Honeywell Life Care Solutions,ORG,Honeywell Life Care Solutions
+IBM,ORG,IBM
+InTouch Technologies Inc,ORG,InTouch Technologies Inc
+Koninklijke Philips NV,ORG,Koninklijke Philips NV
+Ltd,ORG,Ltd
+McKesson Corporation,ORG,McKesson Corporation
+Medtronic,ORG,Medtronic
+PESTEL,ORG,PESTEL
+PTneigh  Adroit Market Research,ORG,PTneigh  Adroit Market Research
+Telemedicine,ORG,Telemedicine
+Worldwide Global Telemedicine Market,ORG,Worldwide Global Telemedicine Market
+Aerotel Medical Systems   Iagnosis   Click Diagnostics   Allscripts Healthcare Solutions Inc,ORG,Aerotel Medical Systems   Iagnosis   Click Diagnostics   Allscripts Healthcare Solutions Inc
+McKesson Corporation   Dermlink   AMD Global Telemedicine INC   Honeywell Life Care Solutions   GE Healthcare   Philips Healthcare,ORG,McKesson Corporation   Dermlink   AMD Global Telemedicine INC   Honeywell Life Care Solutions   GE Healthcare   Philips Healthcare
+Orbis Market Reports,ORG,Orbis Market Reports
+Tele Dermatology,ORG,Tele Dermatology
+Echo Group   MindLinc   Netsmart Technologies Inc   Allscripts,ORG,Echo Group   MindLinc   Netsmart Technologies Inc   Allscripts
+Orbis Market Reports,ORG,Orbis Market Reports
+Qualifacts   eClinicalWorks   Practice Fusion   McKesson Corporation   Cerner Corporation   Epic Systems Corporation,ORG,Qualifacts   eClinicalWorks   Practice Fusion   McKesson Corporation   Cerner Corporation   Epic Systems Corporation
+Clinical Decision Support System,ORG,Clinical Decision Support System
+PESTEL,ORG,PESTEL
+PTbis  Adroit Market Research,ORG,PTbis  Adroit Market Research
+Worldwide Global Clinical Decision Support System Market,ORG,Worldwide Global Clinical Decision Support System Market
+CDI,ORG,CDI
+Contrive Datum Insights,ORG,Contrive Datum Insights
+Emergency Medical Services Products,ORG,Emergency Medical Services Products
+Emergency Medical Services Products Market,ORG,Emergency Medical Services Products Market
+MindrayHenry ScheinMcKessonEdan InstrumentsWondfo BiotechSarnovaCardinal HealthYuyue Medical Equipment,ORG,MindrayHenry ScheinMcKessonEdan InstrumentsWondfo BiotechSarnovaCardinal HealthYuyue Medical Equipment
+SupplyStrykerPenn CareLepu Medical TechnologyWerfenMedline IndustriesSiemensPhilipsSchillerSmiths GroupAbbottRadiometerGETNI softFlowRocheLivaNovaMedtronicFisher,ORG,SupplyStrykerPenn CareLepu Medical TechnologyWerfenMedline IndustriesSiemensPhilipsSchillerSmiths GroupAbbottRadiometerGETNI softFlowRocheLivaNovaMedtronicFisher
+Alberstons Companies,ORG,Alberstons Companies
+CDC,ORG,CDC
+CVS,ORG,CVS
+CVS Pharmacy,ORG,CVS Pharmacy
+Centers for Disease Control and Prevention,ORG,Centers for Disease Control and Prevention
+JewelOsco,ORG,JewelOsco
+Mariano,ORG,Mariano
+Pfizer,ORG,Pfizer
+Walgreens,ORG,Walgreens
+Walmart,ORG,Walmart
+CVS,ORG,CVS
+CVS Health Corp,ORG,CVS Health Corp
+CVS Health Corporation,ORG,CVS Health Corporation
+DJIA,ORG,DJIA
+Dow Jones Industrial Average,ORG,Dow Jones Industrial Average
+Equitiescom,ORG,Equitiescom
+Equitiescom Newsdesk,ORG,Equitiescom Newsdesk
+QuoteMedia,ORG,QuoteMedia
+CVS,ORG,CVS
+CVS Customer Service,ORG,CVS Customer Service
+CVS Health,ORG,CVS Health
+CVS Pharmacy,ORG,CVS Pharmacy
+Federal Retail Pharmacy Program,ORG,Federal Retail Pharmacy Program
+JJ,ORG,JJ
+Aetna,ORG,Aetna
+American Pharmacists Association,ORG,American Pharmacists Association
+Army,ORG,Army
+Bernstein Research,ORG,Bernstein Research
+CVS,ORG,CVS
+CVS Health,ORG,CVS Health
+Cigna,ORG,Cigna
+Coventry Health Care,ORG,Coventry Health Care
+Crate  Barrel,ORG,Crate  Barrel
+Ernst  Young Boston,ORG,Ernst  Young Boston
+Fortune,ORG,Fortune
+General Motors,ORG,General Motors
+HCA,ORG,HCA
+Johns Hopkins’ Carey Business School,ORG,Johns Hopkins’ Carey Business School
+Lynch,ORG,Lynch
+Magellan,ORG,Magellan
+Magellan Health,ORG,Magellan Health
+Magellan Health Services,ORG,Magellan Health Services
+Peloton,ORG,Peloton
+PwC,ORG,PwC
+Services,ORG,Services
+Starbucks,ORG,Starbucks
+Trump,ORG,Trump
+US Healthcare,ORG,US Healthcare
+Walgreens,ORG,Walgreens
+Walgreens Boots Alliance,ORG,Walgreens Boots Alliance
+Walmart,ORG,Walmart
+Washington State,ORG,Washington State
+Albertsons Companies IncDirk Rossmann GmbH Rite Aid Corporation   Jean Coutu Group Inc,ORG,Albertsons Companies IncDirk Rossmann GmbH Rite Aid Corporation   Jean Coutu Group Inc
+AsiaPacific,ORG,AsiaPacific
+CVS Health   Walgreens Boots Alliance Inc,ORG,CVS Health   Walgreens Boots Alliance Inc
+China Nepstar Chain Drugstore Ltd,ORG,China Nepstar Chain Drugstore Ltd
+Global Pharmaceutical Retail Market,ORG,Global Pharmaceutical Retail Market
+IARC,ORG,IARC
+International Agency for Research on Cancer,ORG,International Agency for Research on Cancer
+Market Research Port,ORG,Market Research Port
+Pharmaceutical Retail Market,ORG,Pharmaceutical Retail Market
+Rest of the World,ORG,Rest of the World
+ATHX,ORG,ATHX
+Athersys Inc,ORG,Athersys Inc
+BTC,ORG,BTC
+Bitcoin,ORG,Bitcoin
+CAPITAL RESEARCH  MANAGEMENT CO,ORG,CAPITAL RESEARCH  MANAGEMENT CO
+CVS,ORG,CVS
+CVS Health Corporation,ORG,CVS Health Corporation
+EPS Growth,ORG,EPS Growth
+ETH,ORG,ETH
+Ethereum,ORG,Ethereum
+FRANKLIN ADVISERS INC,ORG,FRANKLIN ADVISERS INC
+JANUS CAPITAL MANAGEMENT LLC,ORG,JANUS CAPITAL MANAGEMENT LLC
+NASDAQ,ORG,NASDAQ
+NYSE,ORG,NYSE
+ROA,ORG,ROA
+ROI,ORG,ROI
+RSI,ORG,RSI
+WSJ,ORG,WSJ
+Williams,ORG,Williams
+Williams Percent Range,ORG,Williams Percent Range
+Blackrock Inc,ORG,Blackrock Inc
+CVS,ORG,CVS
+CVS Health Corporation,ORG,CVS Health Corporation
+Capital World Investors,ORG,Capital World Investors
+EVP,ORG,EVP
+FactSet,ORG,FactSet
+Float,ORG,Float
+LUDWIG EDWARD J,ORG,LUDWIG EDWARD J
+MERLO LARRY J,ORG,MERLO LARRY J
+NYSE,ORG,NYSE
+SEC,ORG,SEC
+Short Float,ORG,Short Float
+State Street Corporation,ORG,State Street Corporation
+Vanguard Group Inc,ORG,Vanguard Group Inc
+WBA,ORG,WBA
+Walgreens Boots Alliance Inc,ORG,Walgreens Boots Alliance Inc
+ABC1,ORG,ABC1
+ABC2,ORG,ABC2
+ABC3,ORG,ABC3
+ABC4,ORG,ABC4
+APAC,ORG,APAC
+APEJ,ORG,APEJ
+Global Healthcare Service Provider Services Market,ORG,Global Healthcare Service Provider Services Market
+Healthcare Service Provider Services,ORG,Healthcare Service Provider Services
+Orbis Research,ORG,Orbis Research
+APAC,ORG,APAC
+CVS Health,ORG,CVS Health
+DBMR,ORG,DBMR
+Data Bridge Market Research,ORG,Data Bridge Market Research
+Data Bridge Market Research Pvt Ltd,ORG,Data Bridge Market Research Pvt Ltd
+Express Scripts Holding Company,ORG,Express Scripts Holding Company
+Giant Eagle Inc,ORG,Giant Eagle Inc
+Global,ORG,Global
+L Rowland  Co,ORG,L Rowland  Co
+Ltd,ORG,Ltd
+MEA,ORG,MEA
+McKesson Corp,ORG,McKesson Corp
+Optum Inc,ORG,Optum Inc
+Pharma,ORG,Pharma
+Pharma ECommerce,ORG,Pharma ECommerce
+Pharma ECommerce Industry,ORG,Pharma ECommerce Industry
+Pharma ECommerce Market,ORG,Pharma ECommerce Market
+Retail,ORG,Retail
+SHOPAPOTHEKE EUROPE NV,ORG,SHOPAPOTHEKE EUROPE NV
+Team of Data Bridge Market Research,ORG,Team of Data Bridge Market Research
+The Kroger Co,ORG,The Kroger Co
+UK Meds,ORG,UK Meds
+Walgreen Co,ORG,Walgreen Co
+Walgreens Boots Alliance Inc,ORG,Walgreens Boots Alliance Inc
+Walmart,ORG,Walmart
+Zur Rose Group AG,ORG,Zur Rose Group AG
+aporot BV,ORG,aporot BV
+myCARE eK,ORG,myCARE eK
+ATT Stadium,ORG,ATT Stadium
+Hall Middle School,ORG,Hall Middle School
+Weatherford,ORG,Weatherford
+ATT Stadium,ORG,ATT Stadium
+Hall Middle School,ORG,Hall Middle School
+Weatherford,ORG,Weatherford
+ATT,ORG,ATT
+CCP,ORG,CCP
+China Telecom,ORG,China Telecom
+Chinese Communist Party,ORG,Chinese Communist Party
+Department of Commerce,ORG,Department of Commerce
+NBA,ORG,NBA
+Nike,ORG,Nike
+Third Reich,ORG,Third Reich
+Trump,ORG,Trump
+ATT,ORG,ATT
+ATT Inc,ORG,ATT Inc
+ATT Mobility,ORG,ATT Mobility
+Congress,ORG,Congress
+DirecTV,ORG,DirecTV
+FAA,ORG,FAA
+Fourth Circuit,ORG,Fourth Circuit
+Northern District of West Virginia,ORG,Northern District of West Virginia
+TCPA,ORG,TCPA
+US District Court,ORG,US District Court
+Global USB Charger Market,ORG,Global USB Charger Market
+Porter Five Force Analysis,ORG,Porter Five Force Analysis
+TOC,ORG,TOC
+UMR,ORG,UMR
+USB Charger,ORG,USB Charger
+Up Market Research,ORG,Up Market Research
+VPs,ORG,VPs
+ATT,ORG,ATT
+ATT Communications,ORG,ATT Communications
+C Band,ORG,C Band
+FWA,ORG,FWA
+FirstNet,ORG,FirstNet
+HBO,ORG,HBO
+HBO Max,ORG,HBO Max
+McElfresh,ORG,McElfresh
+Stankey,ORG,Stankey
+Verizon,ORG,Verizon
+WarnerMedia,ORG,WarnerMedia
+ATT Inc,ORG,ATT Inc
+Cartrack Holdings Limited,ORG,Cartrack Holdings Limited
+Continental AG,ORG,Continental AG
+FedEx,ORG,FedEx
+Geotab Inc,ORG,Geotab Inc
+Global Vehicle Tracking Systems Market,ORG,Global Vehicle Tracking Systems Market
+Inseego Corp,ORG,Inseego Corp
+Insight Partners,ORG,Insight Partners
+Porter,ORG,Porter
+Robert Bosch GmbH,ORG,Robert Bosch GmbH
+Spireon,ORG,Spireon
+Teletrac Navman US Ltd,ORG,Teletrac Navman US Ltd
+TomTom Telematics BV,ORG,TomTom Telematics BV
+Vehicle Tracking Systems,ORG,Vehicle Tracking Systems
+ATT,ORG,ATT
+AlcatelLucent,ORG,AlcatelLucent
+Bharti Airtel,ORG,Bharti Airtel
+Bharti Airtel Ltd,ORG,Bharti Airtel Ltd
+Customs,ORG,Customs
+Huawei Technologies,ORG,Huawei Technologies
+Industry Association Database,ORG,Industry Association Database
+LM Ericsson,ORG,LM Ericsson
+MetroPCS,ORG,MetroPCS
+National Bureau of statistics,ORG,National Bureau of statistics
+SK,ORG,SK
+Sprint Nextel,ORG,Sprint Nextel
+Telecom,ORG,Telecom
+Telecom Company Details,ORG,Telecom Company Details
+US Cellular,ORG,US Cellular
+Verizon Wireless,ORG,Verizon Wireless
+Vodafone Group PLC,ORG,Vodafone Group PLC
+ATT Stadium,ORG,ATT Stadium
+Canelo vs Saunders,ORG,Canelo vs Saunders
+WBA,ORG,WBA
+WBC,ORG,WBC
+World Boxing Association,ORG,World Boxing Association
+AmerisourceBergen,ORG,AmerisourceBergen
+MWI,ORG,MWI
+MWI Animal Health,ORG,MWI Animal Health
+AmerisourceBergen,ORG,AmerisourceBergen
+AmerisourceBergen Good Neighbor Pharmacy Network,ORG,AmerisourceBergen Good Neighbor Pharmacy Network
+FDA,ORG,FDA
+FedEx,ORG,FedEx
+FedEx Express Canada,ORG,FedEx Express Canada
+Federal Retail Pharmacy Program,ORG,Federal Retail Pharmacy Program
+Government of Canada,ORG,Government of Canada
+Innomar,ORG,Innomar
+Norway     Innomar Strategies,ORG,Norway     Innomar Strategies
+Norwegian Institute of Public Health,ORG,Norwegian Institute of Public Health
+World Courier,ORG,World Courier
+World Courier and ICS,ORG,World Courier and ICS
+ARxIUM,ORG,ARxIUM
+Hive Research,ORG,Hive Research
+IT,ORG,IT
+Individual and Startups,ORG,Individual and Startups
+McKesson,ORG,McKesson
+Pharmacy Dispensing Machines Market,ORG,Pharmacy Dispensing Machines Market
+RMI Pharma Logistics,ORG,RMI Pharma Logistics
+SME,ORG,SME
+ScriptPro,ORG,ScriptPro
+Semiconductor,ORG,Semiconductor
+TOC,ORG,TOC
+Telecom,ORG,Telecom
+United States Business Leaders,ORG,United States Business Leaders
+AmerisourceBergen,ORG,AmerisourceBergen
+FreightWaves,ORG,FreightWaves
+House,ORG,House
+Pharma,ORG,Pharma
+World Courier,ORG,World Courier
+AmerisourceBergen Corporation,ORG,AmerisourceBergen Corporation
+BBraun,ORG,BBraun
+Clinisupplies Ltd,ORG,Clinisupplies Ltd
+DemeTech,ORG,DemeTech
+End Users,ORG,End Users
+Ethicon US LLC,ORG,Ethicon US LLC
+Genia,ORG,Genia
+Global Veterinary Surgical Sutures Market,ORG,Global Veterinary Surgical Sutures Market
+KATSAN,ORG,KATSAN
+KRUSSE UK Ltd,ORG,KRUSSE UK Ltd
+PESTEL,ORG,PESTEL
+PTneigh  Adroit Market Research,ORG,PTneigh  Adroit Market Research
+QClose,ORG,QClose
+RWD Life Science,ORG,RWD Life Science
+Somni Scientific,ORG,Somni Scientific
+Teleflex Incorporated,ORG,Teleflex Incorporated
+Veterinary Surgical Sutures,ORG,Veterinary Surgical Sutures
+Worldwide Global Veterinary Surgical Sutures Market,ORG,Worldwide Global Veterinary Surgical Sutures Market
+OrbisPharmaReports,ORG,OrbisPharmaReports
+Orbispharma,ORG,Orbispharma
+AmerisourceBergen,ORG,AmerisourceBergen
+AmerisourceBergen Corporation,ORG,AmerisourceBergen Corporation
+Cardinal,ORG,Cardinal
+Cardinal Health,ORG,Cardinal Health
+DSCSA,ORG,DSCSA
+GS1 Healthcare US®,ORG,GS1 Healthcare US®
+GS1 US,ORG,GS1 US
+McKesson,ORG,McKesson
+McKesson Pharmaceutical,ORG,McKesson Pharmaceutical
+NDC,ORG,NDC
+Amerisourcebergen Corporation,ORG,Amerisourcebergen Corporation
+Arxium INC,ORG,Arxium INC
+BD,ORG,BD
+Capsa Healthcare,ORG,Capsa Healthcare
+Cerner Corporation,ORG,Cerner Corporation
+Global Pharmacy Automation  Medical Supplies Automation Market,ORG,Global Pharmacy Automation  Medical Supplies Automation Market
+ICT,ORG,ICT
+KUKA Aktiengesellschaft,ORG,KUKA Aktiengesellschaft
+Kon  Regional Outlook of Pharmacy Automation  Medical Supplies Automation Market,ORG,Kon  Regional Outlook of Pharmacy Automation  Medical Supplies Automation Market
+LLC,ORG,LLC
+MarketInsightsReports,ORG,MarketInsightsReports
+Medtronic plc,ORG,Medtronic plc
+Omnicell Inc,ORG,Omnicell Inc
+Parata Systems LLC,ORG,Parata Systems LLC
+Pharmacy Automation  Medical Supplies Automation,ORG,Pharmacy Automation  Medical Supplies Automation
+Regions,ORG,Regions
+Rxsafe,ORG,Rxsafe
+Scriptpro LLC,ORG,Scriptpro LLC
+Siemens AG,ORG,Siemens AG
+TCGRX Pharmacy Workflow Solutions,ORG,TCGRX Pharmacy Workflow Solutions
+Talyst LLC,ORG,Talyst LLC
+American Biotech Supply,ORG,American Biotech Supply
+AmerisourceBergen,ORG,AmerisourceBergen
+Arctiko AS,ORG,Arctiko AS
+Cardinal Logistics,ORG,Cardinal Logistics
+DB Schenker,ORG,DB Schenker
+DHL,ORG,DHL
+Lineage Logistics,ORG,Lineage Logistics
+McKesson,ORG,McKesson
+Panasonic Healthcare co LTD,ORG,Panasonic Healthcare co LTD
+Polaris Market Research,ORG,Polaris Market Research
+Polaris market Research,ORG,Polaris market Research
+Thermo Fischer Scientific,ORG,Thermo Fischer Scientific
+APAC,ORG,APAC
+APEX Packaging Corporation,ORG,APEX Packaging Corporation
+Biotempak,ORG,Biotempak
+Blue Dart Express,ORG,Blue Dart Express
+Cold Chain Technologies Inc,ORG,Cold Chain Technologies Inc
+Cryopak A TCP Company,ORG,Cryopak A TCP Company
+Data Bridge Market Research,ORG,Data Bridge Market Research
+Deutsche Post AG,ORG,Deutsche Post AG
+Ds Smith,ORG,Ds Smith
+Envirotainer,ORG,Envirotainer
+Fast Moving Consumer Goods,ORG,Fast Moving Consumer Goods
+Fedex,ORG,Fedex
+Inmark Temperature Controlled Packaging,ORG,Inmark Temperature Controlled Packaging
+Intelsius,ORG,Intelsius
+Kryotec,ORG,Kryotec
+MEA,ORG,MEA
+Medical Devices Pharmaceuticals,ORG,Medical Devices Pharmaceuticals
+Pelican Biothermal,ORG,Pelican Biothermal
+Rest of AsiaPacific,ORG,Rest of AsiaPacific
+Sofrigam,ORG,Sofrigam
+Softbox Systems Limited,ORG,Softbox Systems Limited
+Sonoco Products Company,ORG,Sonoco Products Company
+Tempack Amerisourcebergen Corporation,ORG,Tempack Amerisourcebergen Corporation
+United Parcel Service,ORG,United Parcel Service
+VaQTec AG,ORG,VaQTec AG
