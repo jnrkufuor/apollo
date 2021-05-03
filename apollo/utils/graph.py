@@ -89,15 +89,87 @@ class Graph(object):
             plt.show()
         
     def generate_graph_labels(self):
+        ''' Function to generate various labels and nodes for the multilayer graph use
         
-        
+            :return :
+        '''
         node_labels = {} 
         nodes_multi_layer={}
-        node_type=["t1","t2"]
         type_count=0
+        node_count =0
+        for G in self.graphs:
+            node_type ="t"+(type_count+1)
+            for node in G.nodes():
+                #set the node name as the key and the label as its value 
+                node_labels[node] = node
+                
+                #create nodes for multilayered graph
+                nodes_multi_layer[node_count]={"node": node,"type":node_type}
 
+                node_count+=1
+            type_count+=1
+        return [node_labels,nodes_multi_layer]
     
-    
+    def get_centralities(self):
+        ''' Function to generate various labels and nodes for the multilayer graph use
+        
+            :return :
+        '''
+        centralities =[]
+        for G in self.graphs:
+            nodes = []
+            eigenvector_cents = []
+            ec_dict = nx.eigenvector_centrality(G, max_iter=1000, weight='weight')
+            for node in tqdm(G.nodes()):
+                nodes.append(node)
+                eigenvector_cents.append(ec_dict[node])
+
+            df_centralities = pd.DataFrame(data={'entity': nodes,
+                                                'eigenvector': eigenvector_cents})
+
+            centralities.append(df_centralities)
+        return centralities
+
+    def visualize_centralities_barplot(self,centralities,filter=20, save_figure=False):
+        ''' Function to generate various labels and nodes for the multilayer graph use
+            :param centralities: list of centralities of each graph
+            :param filter: number top records to filter on
+            :param save_figure: boolean to export the image or not
+        '''
+        count = 1
+        for centrality in centralities:
+            df_cent_top = centrality.sort_values('eigenvector', ascending=False).head(filter)
+            df_cent_top.reset_index(inplace=True, drop=True)
+            fig, axs = plt.subplots(figsize=(10,7))
+            g = sns.barplot(data=df_cent_top,
+                        x='eigenvector',
+                        y='entity',
+                        dodge=False,
+                        orient='h',
+                        hue='eigenvector',
+                        palette='viridis',)
+
+            g.set_yticks([])
+            g.set_title('Most influential entities in network Graph '+count )##
+            g.set_xlabel('Eigenvector centrality')
+            g.set_ylabel('')
+            g.set_xlim(0, max(df_cent_top['eigenvector'])+0.1)
+            g.legend_.remove()
+            g.tick_params(labelsize=5)
+
+            for i in df_cent_top.index:
+                g.text(df_cent_top.iloc[i]['eigenvector']+0.005, i+0.25, df_cent_top.iloc[i]['entity'])
+
+            ut.save_figure(g,'cent_plot.png')
+            nodes = []
+            eigenvector_cents=[]
+            count+=1
+        
+        
+            
+
+        
+        
     
 
 
