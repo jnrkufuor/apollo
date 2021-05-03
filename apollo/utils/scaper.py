@@ -108,7 +108,7 @@ class Scraper:
             
         fullname = os.path.join(outdir, outname)
         print(fullname)
-        print("Printing to file")
+        print("Printing to "+fullname)
         news.to_csv(fullname)
         print("done")
 

@@ -60,7 +60,7 @@ class NER:
             
         fullname = os.path.join(outdir, outname)
         print(fullname)
-        print("Printing to file")
+        print("Printing to "+fullname)
         data.to_csv(fullname)
         print("done")
     
@@ -172,6 +172,7 @@ class NER:
     
 if __name__ == "__main__":
     n = NER('.\\data\\news.csv')
-    #[ner,links]=n.processfile()
-
-    # s.print_to_csv(news)
+    [ner,links]=n.processfile()
+    print(links)
+    s.print_to_csv(links)
+    s.print_to_csv(ner)
