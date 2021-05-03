@@ -172,5 +172,6 @@ class NER:
     
 if __name__ == "__main__":
     n = NER('.\\data\\news.csv')
+    #[ner,links]=n.processfile()
 
     # s.print_to_csv(news)
