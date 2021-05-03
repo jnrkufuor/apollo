@@ -96,7 +96,7 @@ class Scraper:
 
 if __name__ == "__main__":
     s = Scraper(["AAPL", "MSFT"])
-    s.set_period("1m")
+    s.set_period("7d")
     #s.set_date_range(["02-12-2002","02-12-2020"])
 
     #s.check_status()
