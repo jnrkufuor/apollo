@@ -6,7 +6,7 @@ from apollo_util import Util
 from GoogleNews import GoogleNews
 from goose3 import Goose
 from goose3.configuration import Configuration
-
+ut = Util()
 
 class Scraper:
 
@@ -96,7 +96,6 @@ class Scraper:
 
 if __name__ == "__main__":
     s = Scraper(["AAPL", "MSFT"])
-    ut = Util()
     s.set_period("1m")
     #s.set_date_range(["02-12-2002","02-12-2020"])
 

@@ -24,7 +24,8 @@ class Util(object):
         fullname = os.path.join(outdir, outname)
         print("Printing to "+fullname)
         data.to_csv(fullname)
-        print("done")                
+        print("done")
+                   
 
 
 if __name__ == "__main__":

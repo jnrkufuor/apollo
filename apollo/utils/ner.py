@@ -6,6 +6,7 @@ import os
 import matplotlib.pyplot as plt
 import seaborn as sns
 import torch
+from apollo_util import Util
 from itertools import combinations, product
 from tqdm import tqdm
 from flair.data import Sentence
@@ -17,6 +18,8 @@ nltk.download('punkt')
 
 # is cuda available?
 torch.cuda.is_available()
+
+ut = Util()
 
 
 class NER:
@@ -164,7 +167,8 @@ class NER:
     
 if __name__ == "__main__":
     n = NER('.\\data\\news.csv')
-    #[ner,links]=n.processfile()
+    
+    [ner,links]=n.processfile()
   
-    #n.print_to_csv(links,"df_links.csv")
-    #n.print_to_csv(ner,"df_ner.csv")
+    ut.print_to_csv(links,"df_links.csv")
+    ut.print_to_csv(ner,"df_ner.csv")
