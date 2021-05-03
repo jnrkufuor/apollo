@@ -24,7 +24,7 @@ class NER:
     def __init__(self, path_to_data):
         ''' Initialization function for data scraper
 
-            :param data: Optional choose period (period and custom day range should not set together)
+            :param path_to_data: Path to news content
         '''
         self.tagger = SequenceTagger.load('ner')
         self.data = pd.read_csv(path_to_data)
@@ -64,9 +64,10 @@ class NER:
         print("done")
     
     def get_ner_data(self,df_row):
-        '''
-        - function to extract named entities from a paragraph
-        - returns two data frames:
+        '''Function to extract named entities from a paragraph
+           
+           :param df_row: Row within the data frame
+           :returns two data frames:
             - the first is a dataframe of all unique entities (persons and orgs)
             - the second is the links between the entities
         '''
@@ -104,7 +105,6 @@ class NER:
         df_ner = df_ner[df_ner['entity'].map(lambda x: isinstance(x, str))]
         df_ner = df_ner[~df_ner['entity'].isin(self.df_contraptions['contraption'].values)]
         df_ner['entity'] = df_ner['entity'].map(lambda x: x.translate(str.maketrans('', '', string.punctuation)))
-        # df_ner['entity'] = df_ner.apply(lambda x: x['entity'].split(' ')[len(x['entity'].split(' '))-1] if x['type']=='PER' else x['entity'], axis=1)
         df_ner = df_ner.drop_duplicates().sort_values('entity')
         
         # get entity combinations
@@ -114,15 +114,8 @@ class NER:
         df_links = pd.DataFrame(data=combs, columns=['from', 'to'])
         
         # Adding information to links for data tracking and visualization- use one section OR the other depending on data source
-    
         df_links['title']=df_row.title
         df_links['date']=df_row.date
-        # Use these two for Kaggle datasets- they do not have URLs since they are old now, so we use title instead.
-
-        # df_links['url']=df_row.link
-        # df_links['date']=(df_row.datetime)[0:10]
-        # df_links['time']=(df_row.datetime)[10:25]
-        # Use these for any of our own datasets pulled using Goose (they have URLs and datetimes)
         
         return df_ner, df_links
     

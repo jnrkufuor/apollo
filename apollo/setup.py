@@ -5,7 +5,7 @@ import subprocess
 import pkg_resources
 
 #list of required packages to be installed into system
-required = {'numpy','pandas','GoogleNews','goose3','networkx','tqdm','matplotlib','seaborn','py3plex','louvain','python-igraph','leidenalg','torch','flair','nltk'} 
+required = {'numpy','pandas','GoogleNews','goose3','networkx','tqdm','matplotlib','seaborn','py3plex','louvain','python-igraph','leidenalg','torch','flair','nltk','squarify'} 
 
 if required:
     # implement pip as a subprocess:
