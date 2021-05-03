@@ -43,7 +43,7 @@ class NER:
             return entity
         
     
-    def print_to_csv(self, data, outname="news.csv", outdir="data"):
+    def print_to_csv(self, data, outname, outdir="data"):
         ''' Function to print news variable to csv file
         
             :param news: dataframe containing news data
@@ -59,7 +59,6 @@ class NER:
             os.mkdir(outdir)
             
         fullname = os.path.join(outdir, outname)
-        print(fullname)
         print("Printing to "+fullname)
         data.to_csv(fullname)
         print("done")
@@ -172,7 +171,7 @@ class NER:
     
 if __name__ == "__main__":
     n = NER('.\\data\\news.csv')
-    [ner,links]=n.processfile()
-    print(links)
-    s.print_to_csv(links)
-    s.print_to_csv(ner)
+    #[ner,links]=n.processfile()
+  
+    #n.print_to_csv(links,"df_links.csv")
+    #n.print_to_csv(ner,"df_ner.csv")

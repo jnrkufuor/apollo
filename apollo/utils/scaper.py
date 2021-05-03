@@ -91,7 +91,7 @@ class Scraper:
         if self.date_range != "None":
             print(self.date_range)
     
-    def print_to_csv(self, news, outname="news.csv", outdir="data"):
+    def print_to_csv(self, news, outname, outdir="data"):
         ''' Function to print news variable to csv file
         
             :param news: dataframe containing news data
@@ -107,7 +107,6 @@ class Scraper:
             os.mkdir(outdir)
             
         fullname = os.path.join(outdir, outname)
-        print(fullname)
         print("Printing to "+fullname)
         news.to_csv(fullname)
         print("done")
@@ -121,4 +120,4 @@ if __name__ == "__main__":
 
     #s.check_status()
     news = s.fetch_news_data(10)
-    s.print_to_csv(news)
+    s.print_to_csv(news,"news.csv")
