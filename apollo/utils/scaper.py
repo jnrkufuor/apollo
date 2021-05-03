@@ -3,6 +3,8 @@ import numpy as np
 import pandas as pd
 import os
 from GoogleNews import GoogleNews
+from goose3 import Goose
+from goose3.configuration import Configuration
 
 
 class Scraper:
@@ -55,9 +57,10 @@ class Scraper:
         '''
         self.company_list = company_list
 
-    def fetch_news_data(self):
+    def fetch_news_data(self,num_of_articles):
         ''' Function to fetch news based on set parameters
 
+            :param num_of_articles: number of articles to fetch
             :return newsframe: dataframe with news content
         '''
         newsframe = pd.DataFrame()
@@ -66,6 +69,16 @@ class Scraper:
             df_comp = pd.DataFrame(self.gns.result()).iloc[0:10, ]
             newsframe = newsframe.append(df_comp)
             self.gns.clear()
+        
+        newsframe["content"]=np.zeros(len(newsframe.iloc[:,1]))
+        g = Goose()
+        with Goose({'http_timeout': 5.0}) as g:
+            pass
+        for i in range(0,num_of_articles):
+            try:
+                newsframe.iloc[i,7]=(g.extract(url=newsframe.iloc[i,5])).cleaned_text
+            except:
+                newsframe.iloc[i,7]="Missing_Article"
         return newsframe
 
     def check_status(self):
@@ -103,9 +116,9 @@ class Scraper:
 if __name__ == "__main__":
     s = Scraper(["AAPL", "MSFT"])
     
-    #s.set_period("1m")
+    s.set_period("1m")
     #s.set_date_range(["02-12-2002","02-12-2020"])
 
     #s.check_status()
-    #news = s.fetch_news_data()
-    #s.print_to_csv(news)
+    news = s.fetch_news_data(10)
+    s.print_to_csv(news)
