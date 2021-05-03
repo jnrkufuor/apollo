@@ -2,6 +2,7 @@
 import numpy as np
 import pandas as pd
 import os
+from apollo_util import Util
 from GoogleNews import GoogleNews
 from goose3 import Goose
 from goose3.configuration import Configuration
@@ -90,34 +91,16 @@ class Scraper:
             print(self.period)
         if self.date_range != "None":
             print(self.date_range)
-    
-    def print_to_csv(self, news, outname, outdir="data"):
-        ''' Function to print news variable to csv file
-        
-            :param news: dataframe containing news data
-            :param outname: name of file to be saved
-            :param outdir: target directory(will be created if does not exist)
-        '''
-        if os.name == "nt":
-            outdir = ".\\"+outdir
-        if os.name == "posix":
-            outdir = "./"+outdir
-            
-        if not os.path.exists(outdir):
-            os.mkdir(outdir)
-            
-        fullname = os.path.join(outdir, outname)
-        print("Printing to "+fullname)
-        news.to_csv(fullname)
-        print("done")
+
 
 
 if __name__ == "__main__":
     s = Scraper(["AAPL", "MSFT"])
-    
+    ut = Util()
     s.set_period("1m")
     #s.set_date_range(["02-12-2002","02-12-2020"])
 
     #s.check_status()
     news = s.fetch_news_data(10)
-    s.print_to_csv(news,"news.csv")
+    #Util.print_to_csv(news,"news.csv","data")
+    ut.print_to_csv(news,"news.csv")

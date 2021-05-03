@@ -1,13 +1,13 @@
 # import packages
 import pandas as pd
-from itertools import combinations, product
 import string
 import re
 import os
 import matplotlib.pyplot as plt
 import seaborn as sns
-from tqdm import tqdm
 import torch
+from itertools import combinations, product
+from tqdm import tqdm
 from flair.data import Sentence
 from flair.models import SequenceTagger
 from nltk import tokenize
@@ -22,7 +22,7 @@ torch.cuda.is_available()
 class NER:
 
     def __init__(self, path_to_data):
-        ''' Initialization function for data scraper
+        ''' Initialization function for named entity recognition parts
 
             :param path_to_data: Path to news content
         '''
