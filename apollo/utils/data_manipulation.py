@@ -48,6 +48,29 @@ class Manipulator(object):
             correlation_matrix[i] = matrix
         
         return correlation_matrix
+
+    def subset_financial_links(self,financial_links=[pd.DataFrame()],criteria=[0.8,0.5]):
+        ''' Subsets the financial links. 
+
+            :param financial_links: from_to data frame of financial data. Data array can contain either stock volumes or prices or both. financial_links[0]= stock prices, financial_links[1]= stock volumes
+            :param criteria: number array for and/or subsetting. Criteria lies between 0 and 1. criteria[0] = criteria for stronger links criteria[1] = criteria for weaker links
+            :return df_matrix: returns a correlation matrix of news co-mentions
+        '''
+        if financial_links.size() == 2:
+            for i in range(financial_links[0].size()):
+                if(abs(financial_links[0]["correlation"][i]) >criteria[0] or abs(financial_links[1]["correlation"][i]) > criteria[0]):
+                    df_finance_nds= df_finance_nds.append({"from" : financial_links[1]["from"][i], "to" : financial_links[1]["to"][i], "weight" : ((abs(financial_links[0]["correlation"][i])+abs(financial_links[0]["correlation"][i]))/2)},ignore_index=True)
+                elif (abs(financial_links[0]["correlation"][i]) < criteria[0] and abs(financial_links[1]["correlation"][i]) < criteria[0]):
+                    if (abs(financial_links[0]["correlation"][i]) >= criteria[1] and abs(financial_links[1]["correlation"][i]) >= criteria[1]):
+                        df_finance_nds= df_finance_nds.append({"from" : financial_links[1]["from"][i], "to" : financial_links[1]["to"][i], "weight" : ((abs(financial_links[0]["correlation"][i])+abs(financial_links[0]["correlation"][i]))/2)},ignore_index=True)
+        elif financial_links.size() ==1:
+            for i in range(financial_links[0].size()):
+                if(abs(financial_links[0]["correlation"][i]) >criteria[0]):
+                    df_finance_nds= df_finance_nds.append({"from" : financial_links[0]["from"][i], "to" : financial_links[0]["to"][i], "weight" : abs(financial_links[0]["correlation"][i])},ignore_index=True)
+                elif (abs(financial_links[0]["correlation"][i]) < criteria[0] and abs(financial_links[1]["correlation"][i]) < criteria[0]):
+                    if (abs(financial_links[0]["correlation"][i]) >= criteria[1]):
+                        df_finance_nds= df_finance_nds.append({"from" : financial_links[0]["from"][i], "to" : financial_links[0]["to"][i], "weight" : abs(financial_links[0]["correlation"][i])},ignore_index=True)
+            return df_finance_nds
     
     def news_to_correlation_matrix(self,news_data,draw=False):
         ''' Returns a correlation matrix of the news data
@@ -84,7 +107,7 @@ class Manipulator(object):
             sns.heatmap(df_matrix).set_title("Frequency heatmap for Comention Matrix")
         return df_matrix
             
-    def subset_news_data(self,news_data,criteria):
+    def subset_comention_links(self,news_data,criteria):
         ''' Subsets news data and returns dataframe
 
             :param news_data: from_to data frame of news data generated from NER.py
