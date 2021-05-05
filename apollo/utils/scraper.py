@@ -28,6 +28,8 @@ class Scraper:
             self.date_range = date_range
             self.gns = GoogleNews(start=date_range[0], end=date_range[1])
         else:
+            self.date_range_exists=False
+            self.periodexists=False
             self.period=period
             self.date_range=date_range
             self.gns = GoogleNews()
@@ -98,6 +100,11 @@ class Scraper:
         ''' Function to print instance variables
         '''
         #download price timeseries from Yahoo Finance
+        price_corr = []
+        volume_corr=[]
+        if (self.date_range == "None"):
+            print("Date range has not been set, set using set_date_range() function")
+            return [price_corr,volume_corr]
         symbols = sorted(self.company_list)
         symbols_data ={}
         print("Downloading {} files".format(len(symbols)))
@@ -111,13 +118,16 @@ class Scraper:
                 pass
         
         #pre-process timeseries data
+        print("Preprocessing Data...")
         index = pd.date_range(start=self.date_range[0], end=self.date_range[1], freq='D')     # initialize an empty DateTime Index
         df_price = pd.DataFrame(index=index, columns=symbols)               # initialize empty dataframes
         df_volume = pd.DataFrame(index=index, columns=symbols)
         
+        print("Aggregate all symbols into a price dataframe and volume dataframe...")
         # Aggregate all symbols into a price dataframe and volume dataframe
         for symbol in symbols:
-            symbol_df = symbols_data[symbol].set_index('Date')
+            #symbol_df = symbols_data[symbol].set_index('Date')
+            symbol_df = symbols_data[symbol]
             #symbol_df = pd.read_csv(os.path.join(data_dir, symbol+".csv")).set_index('Date')
             symbol_df.index = pd.to_datetime(symbol_df.index)
 
@@ -138,20 +148,24 @@ class Scraper:
         df_price_pct = df_price.pct_change().dropna(how='all')
         
         #calculate correlations
+        print("Creating correlation matrices...")
         price_corr = df_price_pct.corr()
         volume_corr = df_volume.corr()
-        
+        print("Done")
         return [price_corr,volume_corr]
         
         
 
 
 if __name__ == "__main__":
-    s = Scraper(["AAPL", "MSFT"])
+    s = Scraper(["AAPL", "MSFT","MMM","AXP","AMGN","CAT","GS","HD","TRV","JPM","WMT","CVX","INTC"])
     s.set_period("7d")
-    #s.set_date_range(["02-12-2002","02-12-2020"])
+    s.set_date_range(["02-01-2015","02-12-2015"])
 
     #s.check_status()
-    news = s.fetch_news_data(10)
+    #news = s.fetch_news_data(10)
     #Util.print_to_csv(news,"news.csv","data")
-    ut.print_to_csv(news,"news.csv")
+    [price,vol] = s.fetch_financial_data()
+    #ut.print_to_csv(news,"news.csv")
+    ut.print_to_csv(price,"price.csv")
+    ut.print_to_csv(vol,"vol.csv")
