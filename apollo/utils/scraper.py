@@ -2,7 +2,7 @@
 import numpy as np
 import pandas as pd
 import os
-from apollo_util import Util
+from util import Util
 from GoogleNews import GoogleNews
 from goose3 import Goose
 from goose3.configuration import Configuration

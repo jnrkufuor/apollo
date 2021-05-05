@@ -6,7 +6,7 @@ import os
 import matplotlib.pyplot as plt
 import seaborn as sns
 import torch
-from apollo_util import Util
+from util import Util
 from itertools import combinations, product
 from tqdm import tqdm
 from flair.data import Sentence

@@ -10,7 +10,7 @@ import louvain
 import igraph as ig
 import leidenalg as la
 from collections import Counter
-from apollo_util import Util
+from util import Util
 from py3plex.visualization import colors
 from LayeredNetworkGraph import LayeredNetworkGraph
 from py3plex.core import multinet
@@ -389,8 +389,10 @@ class Graph(object):
     
     
     def visualize_partitions(self,g,color_list=None,display=False,node_size=1,text_color="black",node_sizes=None,layout_parameters=None,legend=None,scale_by_size=True,layout_algorithm="force",edge_width=0.01,alpha_channel=0.5,labels=None,draw=True,label_font_size=2):
-    #    main_figure = plt.figure()
-    #    shape_subplot = main_figure.add_subplot(111)
+        ''' Initialization function for named entity recognition parts
+
+            :param data_array: Data array containing dataframes to be graphed with the structure [from,to, weight]
+        '''
         print("Beginning parsing..")
         nodes = g.nodes(data=True)
         potlabs = []
