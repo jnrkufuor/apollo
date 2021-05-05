@@ -51,5 +51,5 @@ class Util(object):
 if __name__ == "__main__":
 
     ut = Util()
-    #data = pd.DataFrame(["milk","milk"])
-    # ut.print_to_csv(data,"test.csv")
+    data = pd.DataFrame(["milk","milk"])
+    ut.print_to_csv(data,"test.csv")
