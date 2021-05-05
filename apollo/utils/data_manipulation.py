@@ -28,8 +28,9 @@ class Manipulator(object):
             :param path_to_data: path to data file
             :return dataframe: data frame of read in data
         '''
+        links=[]
         #find unique pairs from correlation coeffecient
-        for i in range(correlation_matrix.size()):
+        for i in range(len(correlation_matrix)):
             correlation_matrix[i] = correlation_matrix[i].drop(correlation_matrix[i].columns[0], axis=1)
             correlation_matrix[i].index = correlation_matrix[i].columns
             matrix = correlation_matrix[i][abs(correlation_matrix[i]) >= 0.0001].stack().reset_index()
@@ -45,9 +46,9 @@ class Manipulator(object):
             
             #rename columns
             matrix.columns = ["from","to","correlation"]
-            correlation_matrix[i] = matrix
+            links.append(matrix)
         
-        return correlation_matrix
+        return links
 
     def subset_financial_links(self,financial_links=[pd.DataFrame()],criteria=[0.8,0.5]):
         ''' Subsets the financial links. 
@@ -56,21 +57,23 @@ class Manipulator(object):
             :param criteria: number array for and/or subsetting. Criteria lies between 0 and 1. criteria[0] = criteria for stronger links criteria[1] = criteria for weaker links
             :return df_matrix: returns a correlation matrix of news co-mentions
         '''
-        if financial_links.size() == 2:
-            for i in range(financial_links[0].size()):
+        df_finance_nds = pd.DataFrame(columns = ["from", "to", "weight"])
+        print(financial_links[0]["correlation"])
+        if len(financial_links) == 2:
+            for i in range(len(financial_links[0])):
                 if(abs(financial_links[0]["correlation"][i]) >criteria[0] or abs(financial_links[1]["correlation"][i]) > criteria[0]):
                     df_finance_nds= df_finance_nds.append({"from" : financial_links[1]["from"][i], "to" : financial_links[1]["to"][i], "weight" : ((abs(financial_links[0]["correlation"][i])+abs(financial_links[0]["correlation"][i]))/2)},ignore_index=True)
                 elif (abs(financial_links[0]["correlation"][i]) < criteria[0] and abs(financial_links[1]["correlation"][i]) < criteria[0]):
                     if (abs(financial_links[0]["correlation"][i]) >= criteria[1] and abs(financial_links[1]["correlation"][i]) >= criteria[1]):
-                        df_finance_nds= df_finance_nds.append({"from" : financial_links[1]["from"][i], "to" : financial_links[1]["to"][i], "weight" : ((abs(financial_links[0]["correlation"][i])+abs(financial_links[0]["correlation"][i]))/2)},ignore_index=True)
-        elif financial_links.size() ==1:
-            for i in range(financial_links[0].size()):
+                        df_finance_nds = df_finance_nds.append({"from" : financial_links[1]["from"][i], "to" : financial_links[1]["to"][i], "weight" : ((abs(financial_links[0]["correlation"][i])+abs(financial_links[0]["correlation"][i]))/2)},ignore_index=True)
+        elif len(financial_links) == 1:
+            for i in range(len(financial_links[0])):
                 if(abs(financial_links[0]["correlation"][i]) >criteria[0]):
                     df_finance_nds= df_finance_nds.append({"from" : financial_links[0]["from"][i], "to" : financial_links[0]["to"][i], "weight" : abs(financial_links[0]["correlation"][i])},ignore_index=True)
                 elif (abs(financial_links[0]["correlation"][i]) < criteria[0] and abs(financial_links[1]["correlation"][i]) < criteria[0]):
                     if (abs(financial_links[0]["correlation"][i]) >= criteria[1]):
                         df_finance_nds= df_finance_nds.append({"from" : financial_links[0]["from"][i], "to" : financial_links[0]["to"][i], "weight" : abs(financial_links[0]["correlation"][i])},ignore_index=True)
-            return df_finance_nds
+        return df_finance_nds
     
     def news_to_correlation_matrix(self,news_data,draw=False):
         ''' Returns a correlation matrix of the news data
@@ -133,5 +136,8 @@ class Manipulator(object):
 
 if __name__ == "__main__":
     m = Manipulator()
-
-    ut.print_to_csv(news,"news.csv")
+    price = m.read_csv('.\\data\\price_corr.csv')
+    vol = m.read_csv('.\\data\\volume_corr.csv')
+    links = m.convert_matrix_to_links([price,vol])
+    links = m.subset_financial_links(links)
+    print(links)

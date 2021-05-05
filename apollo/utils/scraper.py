@@ -1,11 +1,13 @@
 #import packages
 import numpy as np
 import pandas as pd
+import pandas_datareader.data as web
 import os
 from util import Util
 from GoogleNews import GoogleNews
 from goose3 import Goose
 from goose3.configuration import Configuration
+from datetime import datetime
 ut = Util()
 
 class Scraper:
@@ -91,7 +93,57 @@ class Scraper:
             print(self.period)
         if self.date_range != "None":
             print(self.date_range)
+    
+    def fetch_financial_data(self):
+        ''' Function to print instance variables
+        '''
+        #download price timeseries from Yahoo Finance
+        symbols = sorted(self.company_list)
+        symbols_data ={}
+        print("Downloading {} files".format(len(symbols)))
+        for i, symbol in enumerate(symbols):
+            try:
+                df = web.DataReader(symbol,'yahoo', self.date_range[0],  self.date_range[1])
+                df = df[['Adj Close','Volume']]
+                symbols_data[symbol]=df
+            except KeyError:
+                print("Error for {}".format(symbol))
+                pass
+        
+        #pre-process timeseries data
+        index = pd.date_range(start=self.date_range[0], end=self.date_range[1], freq='D')     # initialize an empty DateTime Index
+        df_price = pd.DataFrame(index=index, columns=symbols)               # initialize empty dataframes
+        df_volume = pd.DataFrame(index=index, columns=symbols)
+        
+        # Aggregate all symbols into a price dataframe and volume dataframe
+        for symbol in symbols:
+            symbol_df = symbols_data[symbol].set_index('Date')
+            #symbol_df = pd.read_csv(os.path.join(data_dir, symbol+".csv")).set_index('Date')
+            symbol_df.index = pd.to_datetime(symbol_df.index)
 
+            df_price[symbol] = symbol_df['Adj Close']
+            df_volume[symbol] = symbol_df['Volume']
+        
+        # Let's drop the dates where all the stocks are NaNs, ie., weekends/holidays where no trading occured
+        df_price.dropna(how='all', inplace=True)
+        df_volume.dropna(how='all', inplace=True)
+        assert((df_price.index == df_volume.index).all())
+        pd.isnull(df_price).sum()
+        
+        #Obtain Percentage Change and Correlation
+        #We need to convert prices to percent change in price as opposed to the actual $ price. This is because stocks with very similar prices can behave very differently and vice-versa. For e.g., 
+        # if a stock moves from  100 to 110, we want the price column to say 10% (indicating the change).
+
+        #However, for volume, we will retain magnitude.
+        df_price_pct = df_price.pct_change().dropna(how='all')
+        
+        #calculate correlations
+        price_corr = df_price_pct.corr()
+        volume_corr = df_volume.corr()
+        
+        return [price_corr,volume_corr]
+        
+        
 
 
 if __name__ == "__main__":
