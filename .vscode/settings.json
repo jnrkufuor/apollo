@@ -1,4 +1,4 @@
 {
-    "python.pythonPath": "C:\\Users\\jaycu\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe",
+    "python.pythonPath": "C:\\Users\\jaycu\\anaconda3\\envs\\DL\\python.exe",
     "jupyter.jupyterServerType": "local"
 }

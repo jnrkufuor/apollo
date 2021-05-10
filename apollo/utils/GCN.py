@@ -1,4 +1,5 @@
 import torch
+import torchvision 
 import torch.nn.functional as F
 import torch_geometric.data as tgd
 import matplotlib.pyplot as plt
