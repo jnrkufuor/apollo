@@ -19,15 +19,15 @@ from GCN_Mult import GCN_Mult
 
 class GCN(object):
     
-    def __init__(self,train_vec,test_vec):
+    def __init__(self,train_vec,test_vec,hidden_channels,epochs,weight_decay,learing_rate):
         ''' Initialization function for named entity recognition parts
 
             :param path_to_data: Path to news content
         '''
         self.train_vec = train_vec
         self.test_vec = test_vec
-        self.model = GCN_Mult(hidden_channels=16,num_feats=train_vec.num_features).double()
-        self.optimizer = torch.optim.Adam(self.model.parameters(), lr=0.01, weight_decay=5e-4)
+        self.model = GCN_Mult(hidden_channels=hidden_channels,num_feats=train_vec.num_features).double()
+        self.optimizer = torch.optim.Adam(self.model.parameters(), lr=learing_rate, weight_decay=weight_decay)
         self.criterion = torch.nn.CrossEntropyLoss()
         pass
         
@@ -36,7 +36,8 @@ class GCN(object):
 
             :param path_to_data: Path to news content
         '''
-        z = TSNE(n_components=2).fit_transform(out.detach().cpu().numpy())
+        #z = TSNE(n_components=2).fit_transform(out.detach().cpu().numpy())
+        z = []
         plt.figure(figsize=(10,10))
         plt.xticks([])
         plt.yticks([])

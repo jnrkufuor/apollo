@@ -13,13 +13,13 @@ from sklearn.model_selection import ShuffleSplit
 
 class GCN_Mult(torch.nn.Module):
     
-    def __init__(self, hidden_channels, num_feats):
+    def __init__(self, hidden_channels, num_feats,seeds=12345):
         ''' Initialization function for named entity recognition parts
 
             :param path_to_data: Path to news content
         '''
         super(GCN_Mult, self).__init__()
-        torch.manual_seed(12345)
+        torch.manual_seed(seeds)
         num_labels=2
         self.conv1 = GCNConv(num_feats, hidden_channels)
         self.conv2 = GCNConv(hidden_channels, num_labels)

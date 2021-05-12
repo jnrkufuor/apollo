@@ -46,6 +46,7 @@ class Util(object):
         print("Saving to"+fullname)
         g.get_figure().savefig(fullname, dpi=1000)
         print("done")
+    
 
 
 if __name__ == "__main__":

@@ -135,6 +135,8 @@ class Scraper:
             df_volume[symbol] = symbol_df['Volume']
         
         # Let's drop the dates where all the stocks are NaNs, ie., weekends/holidays where no trading occured
+        df_price = df_price.bfill(axis='rows')   
+        df_price = df_price.ffill(axis='rows')
         df_price.dropna(how='all', inplace=True)
         df_volume.dropna(how='all', inplace=True)
         assert((df_price.index == df_volume.index).all())
