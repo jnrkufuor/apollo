@@ -1,4 +1,4 @@
-# apollo
+# Apollo(Beta)
 
 Apollo is a python package to aid in tasks like data scraping, data manipulation, graph creation and modelling(graph neural network).
 
@@ -22,4 +22,6 @@ To ensure things run smoothly, you may need to add the path of this package to y
 
 ```export PYTHONPATH=$PYTHONPATH:/path_to_package/apollo ``` 
 
+
+***The pakcage is still in testing and development and would go through a number of revisions.
 
