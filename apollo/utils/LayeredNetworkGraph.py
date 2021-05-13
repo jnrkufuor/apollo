@@ -146,12 +146,12 @@ class LayeredNetworkGraph(object):
 
     def draw(self):
 
-        self.draw_edges(self.edges_within_layers,  color='k', alpha=0.3, linestyle='-', zorder=2)
-        self.draw_edges(self.edges_between_layers, color='k', alpha=0.3, linestyle='--', zorder=2)
+        self.draw_edges(self.edges_within_layers,  color='k', alpha=0.5, linestyle='-', zorder=2)
+        self.draw_edges(self.edges_between_layers, color='k', alpha=0.5, linestyle='--', zorder=2)
 
         for z in range(self.total_layers):
             self.draw_plane(z, alpha=0.2, zorder=1)
-            self.draw_nodes([node for node in self.nodes if node[1]==z], s=300, zorder=3)
+            self.draw_nodes([node for node in self.nodes if node[1]==z], s=100, zorder=3)
 
         if self.node_labels:
             self.draw_node_labels(self.node_labels,
