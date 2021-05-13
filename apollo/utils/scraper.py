@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 import pandas_datareader.data as web
 import os
-from util import Util
+from apollo.utils.util import Util
 from GoogleNews import GoogleNews
 from goose3 import Goose
 from goose3.configuration import Configuration
@@ -135,8 +135,8 @@ class Scraper:
             df_volume[symbol] = symbol_df['Volume']
         
         # Let's drop the dates where all the stocks are NaNs, ie., weekends/holidays where no trading occured
-        df_price = df_price.bfill(axis='rows')   
-        df_price = df_price.ffill(axis='rows')
+        #df_price = df_price.bfill(axis='rows')   
+        #df_price = df_price.ffill(axis='rows')
         df_price.dropna(how='all', inplace=True)
         df_volume.dropna(how='all', inplace=True)
         assert((df_price.index == df_volume.index).all())

@@ -10,15 +10,18 @@ import louvain
 import igraph as ig
 import leidenalg as la
 from collections import Counter
-from util import Util
+from apollo.utils.util import Util
+from apollo.utils.data_manipulation import Manipulator
 from py3plex.visualization import colors
-from LayeredNetworkGraph import LayeredNetworkGraph
+from apollo.utils.LayeredNetworkGraph import LayeredNetworkGraph
+from apollo.utils.processor import Processor
 from py3plex.core import multinet
 from networkx.algorithms.community.kclique import k_clique_communities
 from py3plex.algorithms.community_detection import community_wrapper as cw
 from tqdm import tqdm
 tqdm.pandas()
 ut = Util()
+
 
 col_pal = {0: '#F1E8F3',1: '#A8DDFF',2: '#FF8A5B',3: '#74D3AE',4: '#93B7BE',5: '#D1B1CB',6: '#BAF2BB',7: '#FFA69E',8: '#97EAD2',9: '#34E4EA',10: '#B95F89',99: '#828A95'}
 sns.set(rc={'figure.figsize': (20, 15)})
@@ -32,7 +35,7 @@ class Graph(object):
             :param path_to_data: Path to news content
         '''
         self.data_array = data_array
-        self.data_num = data_array.len()
+        self.data_num = len(data_array)
         self.graphs = []
         self.unique_nodes = []
         self.multiplex_graph = multinet.multi_layer_network(network_type="multiplex")
@@ -53,6 +56,7 @@ class Graph(object):
             self.graphs.append(graph)
             print(graph)
             print("Graph created ...")
+        return self.graphs
 
     def get_graphs(self):
         ''' Function to return created graphs
@@ -73,11 +77,11 @@ class Graph(object):
 
             :return unique_nodes: List of unique nodees
         '''
-        if not self.graphs:
-            print("No graphs created. Create Graphs first")
+        if not self.data_array:
+            print("No data loaded.")
             return
         unique_nodes = []
-        for row in self.graphs[0].iterrows():
+        for row in self.data_array[0].iterrows():
             if row[1]["from"] not in unique_nodes:
                 unique_nodes.append(row[1]["from"])
             if row[1]["to"] not in unique_nodes:
@@ -164,17 +168,18 @@ class Graph(object):
                             palette='viridis',)
 
             g.set_yticks([])
-            g.set_title('Most influential entities in network Graph '+count)
+            g.set_title('Most influential entities in network Graph '+ str(count))
             g.set_xlabel('Eigenvector centrality')
             g.set_ylabel('')
             g.set_xlim(0, max(df_cent_top['eigenvector'])+0.1)
             g.legend_.remove()
             g.tick_params(labelsize=5)
+          
 
             for i in df_cent_top.index:
                 g.text(df_cent_top.iloc[i]['eigenvector'] +
                        0.005, i+0.25, df_cent_top.iloc[i]['entity'])
-
+            plt.show()
             ut.save_figure(g, 'cent_plot.png')
             nodes = []
             eigenvector_cents = []
@@ -198,6 +203,7 @@ class Graph(object):
 
             # clique sizes should be greater than one, hence least clique size is 2
             optimal_clique.append(2+(n_cliques.index(max(n_cliques))))
+            print(n_cliques)
 
             if(draw):
                 df_relplot = pd.DataFrame(
@@ -229,8 +235,7 @@ class Graph(object):
                 clique_ids.extend(np.repeat(id, len(nodes)))
                 entities.extend(nodes)
 
-                ec_dict = nx.eigenvector_centrality(
-                    sg, max_iter=1000, weight='weight')
+                ec_dict = nx.eigenvector_centrality(sg, max_iter=1000, weight='weight')
 
                 for entity in nodes:
                     eigenvector_cents.append(ec_dict[entity])
@@ -250,17 +255,23 @@ class Graph(object):
             :param filter: number top records to filter on
             :param save_figure: boolean to export the image or not
         '''
+        clique_num=0
+        
         for G in self.graphs:
 
             df_cliques = clx[clique_num]
             G_clique = G.subgraph(df_cliques['entity'].unique())
             pos = nx.kamada_kawai_layout(G_clique)
             nodes = G_clique.nodes()
+            if(len(df_cliques['clique'].unique())>1):
+              fig, axs = plt.subplots(max(df_cliques['clique'])+1, 2, figsize=(15,40))
 
-            fig, axs = plt.subplots(
-                max(df_cliques['clique'])+1, 2, figsize=(15, 40))
+            
 
             for clique in range(max(df_cliques['clique'])+1):
+                if(len(df_cliques['clique'].unique())<2):
+                    print("Clique Number Must Be Greater Than 2")
+                    break
                 node_colors = [col_pal[clique] if node in df_cliques[df_cliques['clique']
                                                                      == clique]['entity'].values else col_pal[99] for node in nodes]
                 sizes = [40 if node in df_cliques[df_cliques['clique']
@@ -268,8 +279,7 @@ class Graph(object):
                 edge_colors = ['black' if node in df_cliques[df_cliques['clique']
                                                              == clique]['entity'].values else col_pal[99] for node in nodes]
 
-                ec = nx.draw_networkx_edges(
-                    G_clique, pos, alpha=0.05, ax=axs[clique, 0])
+                ec = nx.draw_networkx_edges(G_clique, pos, alpha=0.05, ax=axs[clique, 0])
                 nc = nx.draw_networkx_nodes(G_clique, pos, nodelist=nodes, node_color=node_colors,
                                             node_size=sizes, ax=axs[clique, 0],
                                             edgecolors=edge_colors)
@@ -289,17 +299,19 @@ class Graph(object):
                                 ax=axs[clique, 1])
 
                 g.set_yticks([])
-                g.set_title(f'Clique {clique} {txt}')
+                g.set_title(f'Clique {clique}')
                 g.set_xlabel('')
                 g.set_ylabel('')
                 g.legend_.remove()
                 g.tick_params(labelsize=5)
+               
 
                 for i in df_clique_ind.index:
                     g.text(max(df_clique_ind['centrality'])/30,
                            i+0.15, df_clique_ind.iloc[i]['entity'])
+                
+                plt.show()
 
-            txt = "(Price Graph)"
             clique_num = clique_num+1
             sns.despine()
 
@@ -309,7 +321,7 @@ class Graph(object):
             :param data_array: Data array containing dataframes to be graphed with the structure [from,to, weight]
         '''
         self.data_array = data_array
-        self.data_num = data_array.len()
+        self.data_num = len(data_array)
 
 
     def create_multiplex_graph(self,draw=False):
@@ -514,7 +526,23 @@ class Graph(object):
 
 
 if __name__ == "__main__":
-    n = Graph('.\\data\\news.csv')
+    p = Manipulator()
+    df_links = pd.read_csv("/home/jay/apollo/data/df_links.csv")
+    comention_matrix = p.news_to_correlation_matrix(df_links)
+    df_links = p.subset_comention_links(df_links,5)
+    g = Graph([df_links])
+
+    graphs=g.create_graphs()
+    g.visualize_graphs()
+    centrality = g.get_centralities()
+    g.visualize_centralities_barplot(centrality)
+    [cliques, optimal_clique]=g.find_optimal_number_of_cliques()
+  
+    clx=g.find_centralities_in_cliques(cliques)
+   
+    g.plot_cliques(clx)
+
+
     # [ner,links]=n.processfile()
 
     # n.print_to_csv(links,"df_links.csv")

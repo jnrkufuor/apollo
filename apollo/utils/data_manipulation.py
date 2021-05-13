@@ -2,7 +2,7 @@
 import numpy as np
 import pandas as pd
 import os
-from util import Util
+from apollo.utils.util import Util
 import seaborn as sns
 ut = Util()
 

@@ -18,3 +18,5 @@ if missing:
     
 from flair.models import SequenceTagger
 tagger = SequenceTagger.load('ner')
+
+#add file to where python package export PYTHONPATH=$PYTHONPATH:/home/jay/apollo 

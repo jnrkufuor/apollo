@@ -6,7 +6,8 @@ import os
 import matplotlib.pyplot as plt
 import seaborn as sns
 import torch
-from util import Util
+import numpy as np
+from apollo.utils.util import Util
 from itertools import combinations, product
 from tqdm import tqdm
 from flair.data import Sentence
@@ -18,20 +19,23 @@ import nltk
 nltk.download('punkt')
 
 # is cuda available?
-torch.cuda.is_available()
+print(torch.cuda.is_available())
 
 ut = Util()
 
 
 class Processor:
 
-    def __init__(self, path_to_data):
+    def __init__(self,path_to_data="none",data=pd.DataFrame()):
         ''' Initialization function for named entity recognition parts
 
             :param path_to_data: Path to news content
         '''
         self.tagger = SequenceTagger.load('ner')
-        self.data = pd.read_csv(path_to_data)
+        if (path_to_data!="none"):
+            self.data = pd.read_csv(path_to_data)
+        else:
+            self.data = data
         self.df_contraptions=pd.DataFrame()
     
     def remove_s(self, entity, entity_series):
@@ -46,6 +50,8 @@ class Processor:
         else:
             return entity
         
+    def set_data(self,data):
+        self.data = data
     
     def print_to_csv(self, data, outname, outdir="data"):
         ''' Function to print news variable to csv file
@@ -75,7 +81,9 @@ class Processor:
             - the first is a dataframe of all unique entities (persons and orgs)
             - the second is the links between the entities
         '''
+    
         paragraph=df_row.content
+    
         # changed above row
         # remove newlines and odd characters
         paragraph = re.sub('\r', '', paragraph)
@@ -110,13 +118,13 @@ class Processor:
         df_ner = df_ner[~df_ner['entity'].isin(self.df_contraptions['contraption'].values)]
         df_ner['entity'] = df_ner['entity'].map(lambda x: x.translate(str.maketrans('', '', string.punctuation)))
         df_ner = df_ner.drop_duplicates().sort_values('entity')
-        
+      
         # get entity combinations
         combs = list(combinations(df_ner['entity'], 2))
         
         # create dataframe of relationships (edges)
         df_links = pd.DataFrame(data=combs, columns=['from', 'to'])
-        
+      
         # Adding information to links for data tracking and visualization- use one section OR the other depending on data source
         df_links['title']=df_row.title
         df_links['date']=df_row.date
@@ -124,7 +132,7 @@ class Processor:
         return df_ner, df_links
     
     
-    def process_file(self):
+    def process_news_data(self):
         ''' Function to process news data and return organisation links in the format of from to and count
 
             :returns two data frames:
@@ -153,11 +161,12 @@ class Processor:
         # changed above row
             try:
                 df_ner_temp, df_links_temp = self.get_ner_data(row)
-                df_ner = df_ner.append(df_ner_temp)
-                df_links = df_links.append(df_links_temp)
+
+                df_ner.append(df_ner_temp)
+                df_links.append(df_links_temp)
             except:
                 continue
-
+        
         # remove plurals and possessives
         df_links['to'] = df_links['to'].map(lambda x: self.remove_s(x, df_ner['entity'].values))
         df_links['from'] = df_links['from'].map(lambda x: self.remove_s(x, df_ner['entity'].values))
@@ -165,19 +174,79 @@ class Processor:
         df_links[df_links['to'].str.contains('They')]
         return df_ner, df_links
     
-    def create_comention_matrix(self,df_links,draw=False):
-        ''' Function to process news data and return organisation links in the format of from to and count
+    def convert_matrix_to_links(self,correlation_matrix=[pd.DataFrame()]):
+        ''' Reads data from a file and returns a panda DataFrame
 
-            :returns two data frames:
-                - the first is a dataframe of all unique entities (persons and orgs)
-                - the second is the links between the entities
+            :param path_to_data: path to data file
+            :return dataframe: data frame of read in data
         '''
+        links=[]
+        #find unique pairs from correlation coeffecient
+        for i in range(len(correlation_matrix)):
+            correlation_matrix[i] = correlation_matrix[i].drop(correlation_matrix[i].columns[0], axis=1)
+            correlation_matrix[i].index = correlation_matrix[i].columns
+            matrix = correlation_matrix[i][abs(correlation_matrix[i]) >= 0.0001].stack().reset_index()
+            
+            matrix  = matrix[matrix['level_0'].astype(str)!=matrix['level_1'].astype(str)]
+            matrix['ordered-cols'] = matrix.apply(lambda x: '-'.join(sorted([x['level_0'],x['level_1']])),axis=1)
+            
+            #Remove duplicates and exclude self-correlated values
+            #for price
+            matrix = matrix.drop_duplicates(['ordered-cols'])
+            matrix.reset_index(drop=True, inplace=True)
+            matrix.drop(['ordered-cols'], axis=1, inplace=True)
+            
+            #rename columns
+            matrix.columns = ["from","to","correlation"]
+            links.append(matrix)
+        
+        return links
+
+    def subset_financial_links(self,financial_links=[pd.DataFrame()],criteria=[0.8,0.5]):
+        ''' Subsets the financial links. 
+
+            :param financial_links: from_to data frame of financial data. Data array can contain either stock volumes or prices or both. financial_links[0]= stock prices, financial_links[1]= stock volumes
+            :param criteria: number array for and/or subsetting. Criteria lies between 0 and 1. criteria[0] = criteria for stronger links criteria[1] = criteria for weaker links
+            :return df_matrix: returns a correlation matrix of news co-mentions
+        '''
+        df_finance_nds = pd.DataFrame(columns = ["from", "to", "weight"])
+        print(financial_links[0]["correlation"])
+        if len(financial_links) == 2:
+            for i in range(len(financial_links[0])):
+                if(abs(financial_links[0]["correlation"][i]) >criteria[0] or abs(financial_links[1]["correlation"][i]) > criteria[0]):
+                    df_finance_nds= df_finance_nds.append({"from" : financial_links[1]["from"][i], "to" : financial_links[1]["to"][i], "weight" : ((abs(financial_links[0]["correlation"][i])+abs(financial_links[0]["correlation"][i]))/2)},ignore_index=True)
+                elif (abs(financial_links[0]["correlation"][i]) < criteria[0] and abs(financial_links[1]["correlation"][i]) < criteria[0]):
+                    if (abs(financial_links[0]["correlation"][i]) >= criteria[1] and abs(financial_links[1]["correlation"][i]) >= criteria[1]):
+                        df_finance_nds = df_finance_nds.append({"from" : financial_links[1]["from"][i], "to" : financial_links[1]["to"][i], "weight" : ((abs(financial_links[0]["correlation"][i])+abs(financial_links[0]["correlation"][i]))/2)},ignore_index=True)
+        elif len(financial_links) == 1:
+            for i in range(len(financial_links[0])):
+                if(abs(financial_links[0]["correlation"][i]) >criteria[0]):
+                    df_finance_nds= df_finance_nds.append({"from" : financial_links[0]["from"][i], "to" : financial_links[0]["to"][i], "weight" : abs(financial_links[0]["correlation"][i])},ignore_index=True)
+                elif (abs(financial_links[0]["correlation"][i]) < criteria[0] and abs(financial_links[1]["correlation"][i]) < criteria[0]):
+                    if (abs(financial_links[0]["correlation"][i]) >= criteria[1]):
+                        df_finance_nds= df_finance_nds.append({"from" : financial_links[0]["from"][i], "to" : financial_links[0]["to"][i], "weight" : abs(financial_links[0]["correlation"][i])},ignore_index=True)
+        return df_finance_nds
+    
+   
+
+    def news_to_correlation_matrix(self,news_data,draw=False):
+        ''' Returns a correlation matrix of the news data
+
+            :param news_data: from_to data frame of news data generated from NER.py
+            :param draw: construt a heatmap of the data
+            :return df_matrix: returns a correlation matrix of news co-mentions
+        '''
+        #Subset mews data. Count all links and store under weight column
+        news_data = news_data.groupby(['from', 'to']).size().reset_index()
+        news_data.rename(columns={0: 'weight'}, inplace=True)
+        news_data.reset_index(drop=True, inplace=True)
+        
         #Build Co-mention Matrix
-        df_links[['from', 'to', 'weight']].sort_values('weight', ascending=False)
+        news_data[['from', 'to', 'weight']].sort_values('weight', ascending=False)
         col=[]
 
         #Extract Unique Columns
-        for row in df_links.iterrows():
+        for row in news_data.iterrows():
             if row[1]['from'] not in col:
                 col.append(row[1]['from'])
             if row[1]['to'] not in col:
@@ -185,70 +254,35 @@ class Processor:
 
         df_matrix = pd.DataFrame(0,columns =col,index=col)
 
-        for row in df_links.iterrows():
+        for row in news_data.iterrows():
             df_matrix[row[1]['from']][row[1]['to']] = row[1]['weight']
             df_matrix[row[1]['to']][row[1]['from']] = row[1]['weight']
             df_matrix[row[1]['from']][row[1]['from']] = 1
             df_matrix[row[1]['to']][row[1]['to']] = 1
         
         if draw:
-            sns.set(rc={'figure.figsize':(20,15)})
             sns.heatmap(df_matrix).set_title("Frequency heatmap for Comention Matrix")
         return df_matrix
-    
-    def correlation_matrix_to_dataframe(self, df_data):
-        ''' Function to process news data and return organisation links in the format of from to and count
+            
+    def subset_comention_links(self,news_data,criteria):
+        ''' Subsets news data and returns dataframe
 
-            :returns two data frames:
-                - the first is a dataframe of all unique entities (persons and orgs)
-                - the second is the links between the entities
+            :param news_data: from_to data frame of news data generated from NER.py
+            :param criteria: cut off criteria(A count variable greater than 1)
+            :return df_matrix: returns a correlation matrix of news co-mentions
         '''
-        df_prices = df_data.drop(df_data.columns[0], axis=1)
-        df_prices.index = df_prices.columns
+        #Subset mews data. Count all links and store under weight column
+        news_data = news_data.groupby(['from', 'to']).size().reset_index()
+        news_data.rename(columns={0: 'weight'}, inplace=True)
+        news_data.reset_index(drop=True, inplace=True)
+        
+        #normalize values and create co-mention matrix - Use Z-score normmalization?
+        #df_links['weight'] =(df_links['weight']-df_links['weight'].min())/(df_links['weight'].max()-df_links['weight'].min())
 
-        # Get correlation pairs for Price and Volume
-        df_corr = df_data[abs(df_data) >= 0.0001].stack().reset_index()
-
-        #Take out lower triangle 
-        df_corr  = df_corr[df_corr['level_0'].astype(str)!=df_corr['level_1'].astype(str)]
-        df_corr['ordered-cols'] = df_corr.apply(lambda x: '-'.join(sorted([x['level_0'],x['level_1']])),axis=1)
-
-        #Remove duplicates and exclude self-correlated values
-        df_data = df_corr.drop_duplicates(['ordered-cols'])
-        df_data.reset_index(drop=True, inplace=True)
-        df_data.drop(['ordered-cols'], axis=1, inplace=True)
-
-        #rename columns
-        df_data.columns = ["from","to","correlation"]
-        return df_corr
-    
-    def subset_financial_data(self,df_data_list,upper=0.8,lower=0.5):
-        ''' Function to process news data and return organisation links in the format of from to and count
-
-            :returns two data frames:
-                - the first is a dataframe of all unique entities (persons and orgs)
-                - the second is the links between the entities
-        '''
-        df_finance_nds = pd.DataFrame(columns = ["from", "to", "weight"])
-        df_corr_price = df_data_list[2]
-        df_corr_vol = df_data_list[1]
-        for i in range(1,len(df_corr_price)):
-            if(abs(df_corr_price["correlation"][i]) > upper or abs(df_corr_vol["correlation"][i]) > upper):
-                df_finance_nds= df_finance_nds.append({"from" : df_corr_vol["from"][i], "to" : df_corr_vol["to"][i], "weight" : ((abs(df_corr_price["correlation"][i])+abs(df_corr_price["correlation"][i]))/2)},ignore_index=True)
-            elif (abs(df_corr_price["correlation"][i]) < upper and abs(df_corr_vol["correlation"][i]) < upper):
-                if (abs(df_corr_price["correlation"][i]) >= lower and abs(df_corr_vol["correlation"][i]) >= lower):
-                    df_finance_nds = df_finance_nds.append({"from" : df_corr_vol["from"][i], "to" : df_corr_vol["to"][i], "weight" : ((abs(df_corr_price["correlation"][i])+abs(df_corr_price["correlation"][i]))/2)},ignore_index=True)
-
-
-    def subset_news_data(self,df_links,criteria=4):
-        ''' Function to process news data and return organisation links in the format of from to and count
-
-            :returns two data frames:
-                - the first is a dataframe of all unique entities (persons and orgs)
-                - the second is the links between the entities
-        '''
-        df_links = df_links[df_links['weight'] > criteria]
-        return df_links
+        #Use Hyper parameter for now
+        news_data = news_data[news_data['weight'] > criteria]
+       
+        return news_data
     
     def interval_price_by_quarter(self,df_price,start_dates,end_dates,i):
         ''' Function to process news data and return organisation links in the format of from to and count
@@ -317,9 +351,10 @@ class Processor:
     
     
 if __name__ == "__main__":
-    n = Processor('.\\data\\news.csv')
+    pass
+    #n = Processor('/home/jay/apollo/data/googlenews1000.csv')
     
-    [ner,links]=n.process_file()
+    #[ner,links]=n.process_news_data()
   
-    ut.print_to_csv(links,"df_links.csv")
-    ut.print_to_csv(ner,"df_ner.csv")
+    #ut.print_to_csv(links,"df_links.csv")
+    #ut.print_to_csv(ner,"df_ner.csv")

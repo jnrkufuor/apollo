@@ -5,11 +5,11 @@ import torch_geometric.data as tgd
 import matplotlib.pyplot as plt
 from torch_geometric.nn import GCNConv
 from torch.nn import Linear
-from util import Util
+from apollo.utils.util import Util
 from sklearn.manifold import TSNE
 from IPython.display import Javascript  # Restrict height of output cell.
 from sklearn.model_selection import ShuffleSplit
-from GCN_Mult import GCN_Mult
+from apollo.utils.GCN_Mult import GCN_Mult
 #display(Javascript('''google.colab.output.setIframeHeight(0, true, {maxHeight: 300})'''))
 
 
